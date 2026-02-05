@@ -1,0 +1,126 @@
+/* Start of Global Webify Design System */
+:root {
+  /* Brand Colors - Royal Blue Dominant */
+  --brand-royal-blue: #0e397e;
+  --brand-deep-blue: #051433;
+  --brand-accent-cyan: #00d4ff;
+  --brand-accent-green: #28a745;
+
+  /* Theme Colors (Dark Default) */
+  --background: #051433;
+  /* Deep Blue Background */
+  --foreground: #ffffff;
+  --surface: #0e397e;
+  --surface-hover: #173463;
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-accent: var(--brand-accent-cyan);
+
+  /* Spacing & Layout */
+  --container-width: 1400px;
+  --header-height: 90px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Typography Variables */
+  --font-heading: var(--font-lexend);
+  --font-body: var(--font-jost);
+}
+
+/* Light Theme Variables (Managed but Dark is primary) */
+@media (prefers-color-scheme: light) {
+  /* We enforce Dark Mode mostly, but if we need light sections: */
+  /* For now, keeping the site globally dark/royal as per "Base backgrounds -> dark / deep blue tones" */
+}
+
+/* Base Reset & Typography */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), sans-serif;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Usage Utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.text-accent {
+  color: var(--text-accent);
+}
+
+.bg-surface {
+  background-color: var(--surface);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brand-deep-blue);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-accent-cyan);
+}

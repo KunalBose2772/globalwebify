@@ -1,0 +1,491 @@
+/* Header.module.css */
+
+/* =========================================
+   CORE VARIABLES & GLOBAL STYLES MAPPED
+   ========================================= */
+.header {
+    height: 90px;
+    transition: all 0.4s ease-in-out;
+    padding: 0;
+    z-index: 1030;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+/* Scrolled State */
+.scrolled {
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    gap: 3rem;
+}
+
+/* =========================================
+   LOGO POP-OUT LOGIC
+   ========================================= */
+.logoWrapper {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    height: 90px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1040;
+}
+
+.logoContainer {
+    width: 140px;
+    height: 140px;
+    background-color: #ffffff;
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.scrolled .logoContainer {
+    background-color: #ffffff;
+    box-shadow: none;
+}
+
+.logo {
+    width: 85%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* =========================================
+   NAVIGATION LINKS
+   ========================================= */
+.nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+    height: 100%;
+    align-items: center;
+}
+
+.navItem {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navLink {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0.5rem 0.5rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-jost), sans-serif;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.navLink:hover {
+    color: var(--brand-accent-cyan);
+}
+
+.scrolled .navLink {
+    color: #1a1a1a;
+}
+
+.scrolled .navLink:hover {
+    color: var(--brand-royal-blue);
+}
+
+.chevron {
+    margin-left: 4px;
+    transition: transform 0.3s;
+}
+
+.navItem:hover .chevron {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================
+   FULL-WIDTH PREMIUM MEGA MENU
+   ========================================= */
+.megaMenuFullWidth {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0;
+    background: white;
+    box-shadow: 0 10px 40px rgba(23, 52, 99, 0.12);
+    border-top: 1px solid rgba(23, 52, 99, 0.08);
+    z-index: 999;
+    animation: megaMenuSlideDown 0.3s ease-out forwards;
+}
+
+@keyframes megaMenuSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.megaMenuInner {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.megaMenuColumns {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 0;
+}
+
+/* Image Column */
+.megaMenuImageCol {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    box-shadow: none;
+    background: linear-gradient(135deg, #173463 0%, #0e397e 50%, #1a5490 100%);
+}
+
+.megaMenuCtaCard {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.megaMenuImageCol:hover .megaMenuCtaCard {
+    transform: translateY(-5px);
+}
+
+.ctaTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.ctaDesc {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 1rem 0;
+    line-height: 1.4;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.ctaBtn {
+    display: inline-block;
+    padding: 0.625rem 1.5rem;
+    background: #28a745;
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.ctaBtn:hover {
+    filter: brightness(1.1);
+}
+
+/* Menu Items Grid - Compact */
+.megaMenuItemsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 1.5rem 2rem;
+    background: white;
+    max-width: 1200px;
+    margin-left: 0;
+}
+
+.megaMenuLink {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    padding: 0.375rem 0.625rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background: white;
+    border: 1px solid transparent;
+    min-height: 60px;
+}
+
+.megaMenuLink::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(135deg, #173463 0%, #0e397e 100%);
+    border-radius: 10px 0 0 10px;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.megaMenuLink:hover {
+    background: linear-gradient(135deg, rgba(23, 52, 99, 0.03) 0%, rgba(14, 57, 126, 0.02) 100%);
+    border-color: rgba(23, 52, 99, 0.1);
+    transform: translateX(4px);
+}
+
+.megaMenuLink:hover::before {
+    opacity: 1;
+}
+
+.megaMenuLinkIcon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: linear-gradient(135deg, rgba(23, 52, 99, 0.08) 0%, rgba(14, 57, 126, 0.05) 100%);
+    color: var(--brand-deep-blue);
+    transition: all 0.3s;
+}
+
+.megaMenuLink:hover .megaMenuLinkIcon {
+    background: linear-gradient(135deg, #173463 0%, #0e397e 100%);
+    color: white;
+    transform: scale(1.08) rotate(5deg);
+}
+
+.megaMenuLinkContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.megaMenuLinkTitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--brand-deep-blue);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+}
+
+/* RIGHT SIDE UTILS */
+.rightUtils {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* CUSTOM BUTTON */
+.btnCustom {
+    /* REMOVED: background: var(--brand-accent-cyan); */
+    background: #ffffff;
+    /* White default to stand out against dark hero */
+    color: var(--brand-deep-blue);
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 12px 28px;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.btnCustom:hover {
+    transform: translateY(-2px);
+    background: var(--brand-accent-green);
+    /* Optional: Green hover for CTA feel */
+    color: white;
+}
+
+/* Scrolled State: Button becomes Royal Blue */
+.scrolled .btnCustom {
+    background: var(--brand-royal-blue);
+    color: white;
+    box-shadow: 0 4px 15px rgba(14, 57, 126, 0.2);
+}
+
+.scrolled .btnCustom:hover {
+    background: var(--brand-deep-blue);
+}
+
+/* SOCIALS */
+.headerSocials {
+    display: none;
+    align-items: center;
+    margin-right: 1.5rem;
+    gap: 0.25rem;
+}
+
+.scrolled .headerSocials {
+    display: flex;
+}
+
+.socialLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: #ffffff;
+    /* Default brand colors for transparent mode? 
+       Actually, usually socials on transparent header are white/glassy.
+       But code previously had specific brand colors.
+       Let's stick to glassy white for transparent mode elegance. */
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.socialLink:hover {
+    background: var(--brand-accent-cyan);
+    color: white;
+}
+
+/* Scrolled: Icons become Royal Blue */
+.scrolled .socialLink {
+    background: var(--brand-royal-blue) !important;
+    /* Force override brand colors */
+    color: white !important;
+}
+
+.scrolled .socialLink:hover {
+    background: var(--brand-deep-blue) !important;
+}
+
+
+/* Mobile Toggler */
+.mobileToggler {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.scrolled .mobileToggler {
+    color: #1a1a1a;
+}
+
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    background: white;
+    z-index: 1050;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    padding: 2rem;
+    border-left: 1px solid #dee2e6;
+}
+
+.mobileMenu.open {
+    transform: translateX(0);
+}
+
+.mobileList {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.mobileLink {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    color: var(--brand-deep-blue);
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1045;
+    display: none;
+}
+
+.backdrop.open {
+    display: block;
+}
+
+@media (max-width: 1024px) {
+
+    .nav,
+    .headerSocials,
+    .rightUtils {
+        display: none;
+    }
+
+    .mobileToggler {
+        display: block;
+        position: absolute;
+        right: 20px;
+    }
+
+    .megaMenuFullWidth {
+        display: none;
+    }
+
+    .logoWrapper {
+        position: relative;
+        left: 0;
+        margin-right: auto;
+    }
+}
